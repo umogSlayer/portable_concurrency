@@ -1,3 +1,6 @@
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+
 set(API_TESTS
   abandon.cpp
   algo_adapters.cpp
@@ -38,7 +41,7 @@ set(TEST_TOOLS
 )
 
 add_executable(pc_unit_tests ${API_TESTS} ${DETAILS_TESTS} ${TEST_TOOLS})
-target_link_libraries(pc_unit_tests portable_concurrency CONAN_PKG::gtest)
+target_link_libraries(pc_unit_tests portable_concurrency GTest::GTest GTest::Main)
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 7)
     # Useless warning on correct code which marks the problem which can only happen
