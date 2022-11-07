@@ -4,7 +4,7 @@ from conans import ConanFile, CMake, tools
 class PortableconCurrencyConan(ConanFile):
     build_requires = "gtest/1.10.0"
     name = "portable_concurrency"
-    version = "0.11.0"
+    version = "0.11.99"
     license = "CC0"
     url = "https://github.com/VestniK/portable_concurrency"
     description = "Portable future/promise implemenattion close to ConcurrencyTS specification"
