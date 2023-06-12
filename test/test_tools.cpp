@@ -1,4 +1,5 @@
 #include <portable_concurrency/latch>
+#include <algorithm>
 
 #include "test_tools.h"
 
