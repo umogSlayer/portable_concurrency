@@ -29,9 +29,9 @@ class PortableconCurrencyConan(ConanFile):
         if self.settings.os == "Windows":
             self.options.rm_safe("fPIC")
 
-    def requirements(self):
-        self.requires("gtest/1.13.0", private=True)
-        self.requires("asio/1.28.0", private=True)
+    def build_requirements(self):
+        self.test_requires("gtest/1.13.0")
+        self.test_requires("asio/1.28.0")
 
     def generate(self):
         tc = CMakeToolchain(self)
@@ -39,8 +39,6 @@ class PortableconCurrencyConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        if self.develop:
-            cmake.definitions['PC_DEV_BUILD'] = True
         if self.options.no_deprecated:
             cmake.definitions['PC_NO_DEPRECATED'] = True
         cmake.configure()
